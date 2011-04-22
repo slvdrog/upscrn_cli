@@ -1,0 +1,12 @@
+*+Description+*
+*upscrn_cli* is a multi-platform dekstop client for upscrn (url upscrn). It gives the user an easy
+way to capture and share desktop screenshots, by uploading it to upscrn and returning the
+public url for said image.
+
+*+How to execute+*
+Just run 'jruby src/upscrn.rb' from the project folder.
+
+*+Contributor list+*
+
+Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+
