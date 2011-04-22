@@ -1,4 +1,6 @@
 partscrn.jpg
 fullscrn.jpg
 package/*
+!.gitignore
+build_configuration.rb
 
