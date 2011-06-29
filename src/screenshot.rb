@@ -73,13 +73,17 @@ class CropPanel < javax.swing.JPanel
   end
 
   def crop(filename)
+    auth_token = AuthToken.new
+    token = auth_token.get_token
+    p @token
     cropped = @image.get_subimage(@beginX, @beginY, @width, @height)
     file  = java::io::File.new(filename)
     javax::imageio::ImageIO::write(cropped, "jpg", file)
     cropped = File.open filename, 'r'
 
-    @url = UpscrnClient.perform('post', 'screenshots', {:image => cropped, })
-    Url.show(@url)
+    show_url = Url.new
+    @url = UpscrnClient.perform('post', 'screenshots', {:image => cropped, :auth_token => token})
+    show_url.show(@url)
 #    return File.open filename, 'r'
   end
 
@@ -100,7 +104,7 @@ class Listener
       @currentY = event.getY()
       beginX = Math.min(@startX, @currentX)
       beginY = Math.min(@startY, @currentY)
-      width = Math.abs(@currentX - @startX)
+      width  = Math.abs(@currentX - @startX)
       height = Math.abs(@currentY - @startY)
       event.source.new_size(beginX, beginY, width, height)
       event.source.repaint()

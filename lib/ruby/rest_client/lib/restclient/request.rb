@@ -1,8 +1,5 @@
-$LOAD_PATH << 'lib/ruby/mime_types/lib'
-$LOAD_PATH << 'mime_types/lib'
-
 require 'tempfile'
-require 'mime/types'
+require 'lib/ruby/mime_types/lib/mime/types.rb'
 require 'cgi'
 
 module RestClient

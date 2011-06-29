@@ -9,25 +9,35 @@ configuration do |c|
 	#
 	c.output_dir = "package"
 
+	# The type of executable to create (console or gui)
+	# default value: "gui"
+	#
+	c.executable_type = "gui"
+
 	# The main ruby file to invoke, minus the .rb extension
 	# default value: "main"
 	#
-	c.main_ruby_file = "upscrn"
+	c.main_ruby_file = "src/upscrn"
 
 	# The fully-qualified name of the main Java file used to initiate the application.
 	# default value: "org.rubyforge.rawr.Main"
 	#
-	#c.main_java_file = "org.rubyforge.rawr.Upscrn"
+	c.main_java_file = "org.rubyforge.rawr.Main"
 
 	# A list of directories where source files reside
 	# default value: ["src"]
 	#
-	c.source_dirs = %w{src lib/ruby}
+	c.source_dirs = ["src", "lib/ruby"]
 
 	# A list of regexps of files to exclude
 	# default value: []
 	#
-	#c.source_exclude_filter = []
+	c.source_exclude_filter = []
+
+	# The base directory that holds Mirah files, or subdirectories with Mirah files.
+	# default value: "src"
+	#
+	#c.mirah_source_root = "src"
 
 	# Whether Ruby source files should be compiled into .class files
 	# default value: true
@@ -47,7 +57,7 @@ configuration do |c|
 	# Undocumented option 'files_to_copy'
 	# default value: []
 	#
-	#c.files_to_copy = []
+	c.files_to_copy = ["lib/ruby/mime_types/lib/mime/types.rb.data","upscrn.ico"]
 
 	# Undocumented option 'target_jvm_version'
 	# default value: 1.6
@@ -79,12 +89,12 @@ configuration do |c|
 	# Undocumented option 'mac_icon_path'
 	# default value: nil
 	#
-	#c.mac_icon_path = nil
+	c.mac_icon_path = "src/upscrn.ico"
 
 	# Undocumented option 'windows_icon_path'
 	# default value: nil
 	#
-	#c.windows_icon_path = nil
+	#c.windows_icon_path = "upscrn.ico"
 
 end
 

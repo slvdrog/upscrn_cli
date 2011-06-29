@@ -19,7 +19,7 @@
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleIconFile</key>
-    <string>GenericJavaApp.icns</string>
+    <string>upscrn.ico</string>
     <key>Java</key>
     <dict>
         <key>MainClass</key>
