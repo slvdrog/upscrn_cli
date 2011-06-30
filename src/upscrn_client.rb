@@ -7,7 +7,7 @@ class UpscrnClient
 
     def perform(verb,action,params={})
       action = [action, 'json'].join('.')
-      url = ['http://www.upscrn.com', action].join('/')
+      url = ['http://upscrn.com', action].join('/')
 #      url = ['http://127.0.0.1:3000', action].join('/')
       JSON.parse(RestClient.send(verb,url,params).body)
     end
