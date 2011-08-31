@@ -29,7 +29,6 @@ class Screenshot
 
   def self.crop
     dim = Screenshot.capture(0, 0, nil, 'partscrn.jpg')
-
     frame = JFrame.new()
     frame.set_bounds(0, 0, dim.get_width, dim.get_height)
     frame.setUndecorated(true)
@@ -73,8 +72,8 @@ class CropPanel < javax.swing.JPanel
   end
 
   def crop(filename)
-    auth_token = AuthToken.new
-    token = auth_token.get_token
+    config = AuthToken.new
+    token = config.get_token
     p @token
     cropped = @image.get_subimage(@beginX, @beginY, @width, @height)
     file  = java::io::File.new(filename)
@@ -82,7 +81,7 @@ class CropPanel < javax.swing.JPanel
     cropped = File.open filename, 'r'
 
     show_url = Url.new
-    @url = UpscrnClient.perform('post', 'screenshots', {:image => cropped, :auth_token => token})
+    @url = UpscrnClient.perform('post', 'screenshots', token, {:screenshot => [:image => cropped]})
     show_url.show(@url)
 #    return File.open filename, 'r'
   end
