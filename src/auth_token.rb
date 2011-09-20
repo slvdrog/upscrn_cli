@@ -17,7 +17,7 @@ class AuthToken
 #      @projects.load(FileInputStream.new('projects.properties'))
     rescue
     end
-    self.get_projects
+#    self.get_projects
   end
 
   def get_token
@@ -43,9 +43,9 @@ class AuthToken
     @project_list = UpscrnClient.perform('get', 'projects', token)
     p @project_list['projects']
     @project_list['projects'].each do |pr|
-      @projects.set_property(pr['name'], pr['_id'])
+      @projects.set_property(pr['name'], pr['slug'])
       @projects.store(FileOutputStream.new('projects.properties'), '')
-      p pr['name'] + ' id:' + pr['_id']
+      p pr['name'] + ' id:' + pr['slug']
     end
     @projects.set_property('Public', 'public')
     @projects.store(FileOutputStream.new('projects.properties'), '')
