@@ -1,3 +1,5 @@
+Please note that this client is in an early stage. I'm gonna give it some love very soon. All feedback welcomed. Thank you for your patience!
+
 *+Description+*
 *upscrn_cli* is a multi-platform dekstop client for upscrn (www.heroku.upscrn.com). It gives the user an easy
 way to capture and share desktop screenshots, by uploading it to upscrn and returning the
